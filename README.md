@@ -1,3 +1,6 @@
 # Print Server Client
 
-KLEPARDEEEEEEEEEEEE
+|Aluno(a) | R.A. |
+|--|--|
+| Danielle Faria | 167575 |
+| Matheus Kleparde | 177216 |
