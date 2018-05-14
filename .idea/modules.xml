@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PrintServerClient.iml" filepath="$PROJECT_DIR$/PrintServerClient.iml" />
+      <module fileurl="file://D:\Faculdade\4 ano\Topicos em SI\Android\print-server-client\PrintServerClient.iml" filepath="D:\Faculdade\4 ano\Topicos em SI\Android\print-server-client\PrintServerClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Faculdade\4 ano\Topicos em SI\Android\print-server-client\app\app.iml" filepath="D:\Faculdade\4 ano\Topicos em SI\Android\print-server-client\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/print-server-client.iml" filepath="$PROJECT_DIR$/.idea/print-server-client.iml" />
     </modules>
   </component>
 </project>
