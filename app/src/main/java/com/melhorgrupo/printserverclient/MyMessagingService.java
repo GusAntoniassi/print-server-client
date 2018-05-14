@@ -46,7 +46,6 @@ public class MyMessagingService extends FirebaseMessagingService {
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId)
-                    .setSmallIcon(R.drawable.ic_launcher_foreground)
                     .setContentTitle(appName)
                     .setContentText(remoteMessage.getNotification().getBody())
                     .setSound(defaultSoundUri)
