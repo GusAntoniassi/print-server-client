@@ -2,6 +2,7 @@ package com.melhorgrupo.printserverclient;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -93,18 +94,15 @@ public class TarefasActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_tarefa) {
+            Intent intent = new Intent(this, TarefasActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_historico) {
+            Intent intent = new Intent(this, HistoricoActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_sobre) {
+            Intent intent = new Intent(this, SobreActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
