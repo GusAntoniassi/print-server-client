@@ -12,5 +12,16 @@
     <string name="title_activity_main">MainActivity</string>
 
 
-    <string name="hello_blank_fragment">Sobre o app</string>
+    <string name="historico_app">historico do app</string>
+    <string name="sobre_app">sobre</string>
+    <string name="nome_sobre">Danielle Faria "                       " 167575
+                            \nGustavo Antoniassi  "             "178107
+                            \nMatheus Kleparde   "               "177216
+    </string>
+
+    <string name="desenvolvimento_app">Aplicativo desenvolvido durante a disciplina de Tópicos Especias em SI,
+                                        do curso de Sistema de Informaçao da UNIPAR - Umuarama
+    </string>
+
+    <string name="professor_nome"> Professor: Carlos Eduardo Pelegrin</string>
 </resources>

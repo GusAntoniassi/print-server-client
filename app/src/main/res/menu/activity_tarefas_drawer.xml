@@ -6,16 +6,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_tarefa"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_tarefa"
             android:title="Tarefas"
             android:checked="true"/>
         <item
             android:id="@+id/nav_historico"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_historico"
             android:title="Histórico" />
         <item
             android:id="@+id/nav_sobre"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_users"
             android:title="Sobre" />
 
     </group>

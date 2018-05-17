@@ -95,7 +95,9 @@ public class TarefasActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_tarefa) {
-
+            setTitle("Tarefas");
+            Intent intent = new Intent(this, TarefasActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_historico) {
             setTitle("Histórico");
             Historico historico = new Historico();
