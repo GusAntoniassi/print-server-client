@@ -41,14 +41,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SobreActivity"
-            android:label="@string/title_activity_sobre"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".HistoricoActivity"
-            android:label="@string/title_activity_historico"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>

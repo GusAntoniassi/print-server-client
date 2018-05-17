@@ -95,14 +95,17 @@ public class TarefasActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_tarefa) {
-            Intent intent = new Intent(this, TarefasActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_historico) {
-            Intent intent = new Intent(this, HistoricoActivity.class);
-            startActivity(intent);
+            setTitle("Histórico");
+            Historico historico = new Historico();
+            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, historico).commit();
         } else if (id == R.id.nav_sobre) {
-            Intent intent = new Intent(this, SobreActivity.class);
-            startActivity(intent);
+            setTitle("Sobre");
+            Sobre sobre = new Sobre();
+            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, sobre).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

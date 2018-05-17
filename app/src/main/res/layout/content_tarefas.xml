@@ -8,4 +8,9 @@
     tools:context="com.melhorgrupo.printserverclient.TarefasActivity"
     tools:showIn="@layout/app_bar_tarefas">
 
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
 </android.support.constraint.ConstraintLayout>
