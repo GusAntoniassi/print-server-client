@@ -5,70 +5,79 @@
     android:layout_height="match_parent"
     tools:context=".Sobre">
 
-    <TextView
+    <LinearLayout
         android:paddingLeft="16dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/texto_fonte1"
-        android:textSize="30dp"
-        android:text="PrintServer App"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:elevation="2dp"
-        />
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:paddingLeft="16dp"
-        android:paddingTop="40dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/texto_fonte2"
-        android:text="v 0.0.1"
-        android:elevation="2dp"
-        />
 
-    <TextView
-        android:paddingLeft="16dp"
-        android:paddingTop="90dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:id="@+id/texto_fonte3"
-        android:textColor="@color/colorPrimary"
-        android:text="Desenvolvido por"
-        />
+        <TextView
+            android:id="@+id/texto_fonte1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="PrintServer App"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:typeface="sans" />
 
-    <TextView
-        android:paddingLeft="16dp"
-        android:paddingTop="120dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:id="@+id/texto_fonte4"
-        android:text="@string/nome_sobre"
-        android:textStyle="bold"
-        />
+        <TextView
+            android:id="@+id/texto_fonte2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="v 0.0.1" />
 
-    <TextView
-        android:paddingLeft="16dp"
-        android:paddingTop="220dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:id="@+id/texto_fonte5"
-        android:text="@string/desenvolvimento_app"
-        android:textStyle="italic"
-        />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+        </View>
 
-    <TextView
-        android:paddingLeft="16dp"
-        android:paddingTop="340dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:id="@+id/texto_fonte6"
-        android:text="@string/professor_nome"
-        android:textStyle="bold"
-        />
+        <TextView
+            android:id="@+id/texto_fonte3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Desenvolvido por"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/texto_fonte4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nome_sobre"
+            android:textSize="18dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"
+            android:layout_marginTop="16dp">
+        </View>
+
+
+        <TextView
+            android:id="@+id/texto_fonte5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desenvolvimento_app"
+            android:textSize="18dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/texto_fonte6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/professor_nome"
+            android:textSize="18dp"
+            android:paddingTop="16dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </FrameLayout>

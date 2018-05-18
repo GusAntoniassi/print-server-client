@@ -3,7 +3,7 @@
 
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="default_notification_channel_name" translatable="true">News</string>
-    <string name="title_activity_tarefas">PrintServer App</string>
+    <string name="title_activity_tarefas">Tarefas</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

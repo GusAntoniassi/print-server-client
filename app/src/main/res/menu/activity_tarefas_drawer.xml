@@ -10,9 +10,9 @@
             android:title="Tarefas"
             android:checked="true"/>
         <item
-            android:id="@+id/nav_historico"
+            android:id="@+id/nav_arq_env"
             android:icon="@drawable/ic_historico"
-            android:title="Histórico" />
+            android:title="Arquivos Enviados" />
         <item
             android:id="@+id/nav_sobre"
             android:icon="@drawable/ic_users"
@@ -21,3 +21,7 @@
     </group>
 
 </menu>
+
+
+
+<!--recyclerView e CardView -->
