@@ -1,14 +1,15 @@
 package com.melhorgrupo.printserverclient;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,15 +21,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.melhorgrupo.printserverclient.arquivosEnviados.ArquivoEnviado;
 
-public class TarefasActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Fragment fragmentAtual = new TarefasFragment();
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarefas);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,19 +50,14 @@ public class TarefasActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FirebaseMessaging.getInstance().subscribeToTopic("news");
+        configurarMensagensFirebase();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Create channel to show notifications.
-            String channelId  = getString(R.string.default_notification_channel_id);
-            String channelName = getString(R.string.default_notification_channel_name);
-            NotificationManager notificationManager =
-                    getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
-                    channelName, NotificationManager.IMPORTANCE_LOW));
+        if (savedInstanceState == null) {
+            // Fragment que vai abrir por padrão
+            abrirFragment(new TarefasFragment(), TarefasFragment.TAG, false);
         }
     }
 
@@ -76,7 +74,7 @@ public class TarefasActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.tarefas, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -93,9 +91,22 @@ public class TarefasActivity extends AppCompatActivity
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        getSupportFragmentManager().findFragmentByTag(ArquivosEnviadosFragment.TAG)
-                .onActivityResult(requestCode, resultCode, data);
-//        super.onActivityResult(requestCode, resultCode, data); // não funcionou
+        // Se o resultado da activity for referente ao formulário de arquivos
+        if (requestCode == ArquivosEnviadosFragment.REQUEST_CODE_FORMULARIO) {
+            Fragment arquivosEnviadosFragment = getSupportFragmentManager().findFragmentByTag(ArquivosEnviadosFragment.TAG);
+
+
+            if (arquivosEnviadosFragment != null) {
+                arquivosEnviadosFragment.onActivityResult(requestCode, resultCode, data);
+            } else if (resultCode == FormArquivoEnviadoActivity.RESULT_SUCESSO) {
+                // Se o resultado do form for SUCESSO, criar o fragment e chamar o onActivityResult
+
+                // Não funciona: java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
+//                arquivosEnviadosFragment = new ArquivosEnviadosFragment();
+//                abrirFragment(arquivosEnviadosFragment, ArquivosEnviadosFragment.TAG);
+//                arquivosEnviadosFragment.onActivityResult(requestCode, resultCode, data);
+            }
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -104,27 +115,58 @@ public class TarefasActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        Fragment fragment;
+        String TAG;
+
         if (id == R.id.nav_tarefa) {
-            // @TODO: Deixar as tarefas em um fragment também
-            setTitle("Tarefas");
-            Intent intent = new Intent(this, TarefasActivity.class);
-            startActivity(intent);
+            fragment = new TarefasFragment();
+            TAG = TarefasFragment.TAG;
         } else if (id == R.id.nav_arq_env) {
             setTitle("Arquivos Enviados");
-            ArquivosEnviadosFragment arquivosEnviadosFragment = new ArquivosEnviadosFragment();
-            arquivosEnviadosFragment.setArguments(getIntent().getExtras());
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment, arquivosEnviadosFragment, ArquivosEnviadosFragment.TAG).commit();
+            fragment = new ArquivosEnviadosFragment();
+            TAG = ArquivosEnviadosFragment.TAG;
         } else if (id == R.id.nav_sobre) {
             setTitle("Sobre");
-            Sobre sobre = new Sobre();
-            sobre.setArguments(getIntent().getExtras());
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment, sobre).commit();
+            fragment = new SobreFragment();
+            TAG = SobreFragment.TAG;
+        } else {
+            return false;
         }
+
+        abrirFragment(fragment, TAG);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
+    }
+
+    private void abrirFragment(Fragment fragment, String TAG, boolean backStack) {
+        fragment.setArguments(getIntent().getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_main, fragment, TAG);
+        if (backStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.commit();
+    }
+
+    private void abrirFragment(Fragment fragment, String TAG) {
+        abrirFragment(fragment, TAG, true);
+    }
+
+    private void configurarMensagensFirebase() {
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create channel to show notifications.
+            String channelId = getString(R.string.default_notification_channel_id);
+            String channelName = getString(R.string.default_notification_channel_name);
+            NotificationManager notificationManager =
+                    getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
+                    channelName, NotificationManager.IMPORTANCE_LOW));
+        }
     }
 }

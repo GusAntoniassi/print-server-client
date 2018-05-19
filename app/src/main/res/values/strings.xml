@@ -3,16 +3,13 @@
 
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="default_notification_channel_name" translatable="true">News</string>
-    <string name="title_activity_tarefas">Tarefas</string>
+    <string name="title_tarefas">Tarefas</string>
+    <string name="title_arquivos_enviados">Arquivos enviados</string>
+    <string name="title_sobre">Sobre</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
-
-
-    <string name="historico_app">historico do app</string>
     <string name="sobre_app">sobre</string>
     <string name="nome_sobre">Danielle Faria "                       " 167575
                             \nGustavo Antoniassi  "             " 178107
@@ -28,4 +25,6 @@
     <string name="prefixo_nome_arquivo">%s</string>
     <string name="prefixo_enviado_em">Enviado em: %s</string>
     <string name="prefixo_ultima_impressao">Última impressão: %s</string>
+
+    <string name="texto_sem_tarefas">Nenhuma tarefa em andamento no momento</string>
 </resources>

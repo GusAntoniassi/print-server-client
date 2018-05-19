@@ -40,8 +40,11 @@ public class ArquivosEnviadosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_arquivos_enviados, container, false);
+        // Pegar o title do strings.xml
+        String title = getResources().getString(R.string.title_arquivos_enviados);
+        getActivity().setTitle(title);
 
+        final View view = inflater.inflate(R.layout.fragment_arquivos_enviados, container, false);
         configurarRecycler(view);
 
         // Inflate the layout for this fragment
@@ -80,14 +83,6 @@ public class ArquivosEnviadosFragment extends Fragment {
                 Snackbar.make(getView(), "Erro ao salvar, consulte os logs!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
             }
-
-//
-//                    findViewById(R.id.includemain).setVisibility(View.VISIBLE);
-//                    findViewById(R.id.includecadastro).setVisibility(View.INVISIBLE);
-//                    findViewById(R.id.fab).setVisibility(View.VISIBLE);
-//                } else {
-//                    Snackbar.make(v, "Erro ao salvar, consulte os logs!", Snackbar.LENGTH_LONG)
-//                            .setAction("Action", null).show();
         }
     }
 }
