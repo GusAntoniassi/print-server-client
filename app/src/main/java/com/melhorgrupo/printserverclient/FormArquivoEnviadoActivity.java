@@ -29,6 +29,9 @@ public class FormArquivoEnviadoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_arquivo_enviado);
 
+        String title = getResources().getString(R.string.title_form_arquivo);
+        setTitle(title);
+
         Intent intent = getIntent();
         if (intent.hasExtra("arquivoEnviado")) {
             arquivoEditado = (ArquivoEnviado) intent.getSerializableExtra("arquivoEnviado");

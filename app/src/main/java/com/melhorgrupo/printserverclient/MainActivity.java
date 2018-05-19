@@ -122,11 +122,9 @@ public class MainActivity extends AppCompatActivity
             fragment = new TarefasFragment();
             TAG = TarefasFragment.TAG;
         } else if (id == R.id.nav_arq_env) {
-            setTitle("Arquivos Enviados");
             fragment = new ArquivosEnviadosFragment();
             TAG = ArquivosEnviadosFragment.TAG;
         } else if (id == R.id.nav_sobre) {
-            setTitle("Sobre");
             fragment = new SobreFragment();
             TAG = SobreFragment.TAG;
         } else {

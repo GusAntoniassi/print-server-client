@@ -10,7 +10,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +19,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.melhorgrupo.printserverclient.ArquivosEnviadosFragment;
+import com.melhorgrupo.printserverclient.DetalhesArquivoActivity;
 import com.melhorgrupo.printserverclient.FormArquivoEnviadoActivity;
 import com.melhorgrupo.printserverclient.R;
 
@@ -61,12 +61,12 @@ public class ArquivoEnviadoAdapter extends RecyclerView.Adapter<ArquivoEnviadoHo
         final ArquivoEnviado arquivoEnviado = arquivosEnviados.get(posicao);
         Resources res = context.getResources();
 
-        holder.nomeArquivo.setText(res.getString(R.string.prefixo_nome_arquivo, arquivoEnviado.getNome()));
-        holder.enviadoEm.setText(res.getString(R.string.prefixo_enviado_em, arquivoEnviado.getEnviadoEm()));
+        holder.nomeArquivo.setText(res.getString(R.string.format_nome_arquivo, arquivoEnviado.getNome()));
+        holder.enviadoEm.setText(res.getString(R.string.format_enviado_em, arquivoEnviado.getEnviadoEm()));
         if (arquivoEnviado.getUltimaImpressao().isEmpty()) {
             holder.ultimaImpressao.setVisibility(View.GONE);
         } else {
-            holder.ultimaImpressao.setText(res.getString(R.string.prefixo_ultima_impressao, arquivoEnviado.getUltimaImpressao()));
+            holder.ultimaImpressao.setText(res.getString(R.string.format_ultima_impressao, arquivoEnviado.getUltimaImpressao()));
             holder.ultimaImpressao.setVisibility(View.VISIBLE);
         }
         holder.btnMenu.setOnClickListener(new Button.OnClickListener() {
@@ -104,8 +104,7 @@ public class ArquivoEnviadoAdapter extends RecyclerView.Adapter<ArquivoEnviadoHo
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.arquivo_ver_detalhes:
-                        Toast.makeText(view.getContext(), "Implementação futura",
-                                Toast.LENGTH_LONG).show();
+                        mostrarDetalhesArquivo(view, arquivoEnviado);
                         break;
                     case R.id.arquivo_abrir:
                         Toast.makeText(view.getContext(), "Implementação futura",
@@ -129,6 +128,13 @@ public class ArquivoEnviadoAdapter extends RecyclerView.Adapter<ArquivoEnviadoHo
                 return true;
             }
         });
+    }
+
+    private void mostrarDetalhesArquivo(final View view, final ArquivoEnviado arquivoEnviado) {
+        Activity activity = getActivity(view);
+        Intent intent = new Intent(activity.getBaseContext(), DetalhesArquivoActivity.class);
+        intent.putExtra("arquivoEnviado", arquivoEnviado);
+        activity.startActivity(intent);
     }
 
     private void editarArquivo(final View view, final ArquivoEnviado arquivoEnviado) {
