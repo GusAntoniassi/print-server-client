@@ -10,13 +10,16 @@ import com.melhorgrupo.printserverclient.R;
 public class ArquivoEnviadoHolder extends RecyclerView.ViewHolder {
 
     public TextView nomeArquivo;
-    public ImageButton btnEditar;
-    public ImageButton btnExcluir;
+    public TextView enviadoEm;
+    public TextView ultimaImpressao;
+    public ImageButton btnMenu;
 
     public ArquivoEnviadoHolder(View itemView) {
         super(itemView);
         nomeArquivo = (TextView) itemView.findViewById(R.id.nomeArquivo);
-        btnEditar = (ImageButton) itemView.findViewById(R.id.btnEdit);
-        btnExcluir = (ImageButton) itemView.findViewById(R.id.btnDelete);
+        enviadoEm = (TextView) itemView.findViewById(R.id.enviadoEm);
+        ultimaImpressao = (TextView) itemView.findViewById(R.id.ultimaImpressao);
+
+        btnMenu = (ImageButton) itemView.findViewById(R.id.btnMenu);
     }
 }

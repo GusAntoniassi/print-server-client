@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.melhorgrupo.printserverclient.arquivosEnviados.ArquivoEnviado;
 
 public class TarefasActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,9 +35,9 @@ public class TarefasActivity extends AppCompatActivity
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), FormArquivoEnviadoActivity.class);
+                startActivityForResult(intent, ArquivosEnviadosFragment.REQUEST_CODE_FORMULARIO);
             }
         });
 
@@ -89,6 +91,13 @@ public class TarefasActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        getSupportFragmentManager().findFragmentByTag(ArquivosEnviadosFragment.TAG)
+                .onActivityResult(requestCode, resultCode, data);
+//        super.onActivityResult(requestCode, resultCode, data); // não funcionou
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -102,15 +111,10 @@ public class TarefasActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_arq_env) {
             setTitle("Arquivos Enviados");
-//            Historico historico = new Historico();
-//            historico.setArguments(getIntent().getExtras());
-//            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-//            fragmentManager.beginTransaction().replace(R.id.fragment, historico).commit();
-
             ArquivosEnviadosFragment arquivosEnviadosFragment = new ArquivosEnviadosFragment();
             arquivosEnviadosFragment.setArguments(getIntent().getExtras());
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment, arquivosEnviadosFragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment, arquivosEnviadosFragment, ArquivosEnviadosFragment.TAG).commit();
         } else if (id == R.id.nav_sobre) {
             setTitle("Sobre");
             Sobre sobre = new Sobre();

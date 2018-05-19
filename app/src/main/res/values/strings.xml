@@ -24,4 +24,8 @@
     </string>
 
     <string name="professor_nome"> Professor: Carlos Eduardo Pelegrin</string>
+
+    <string name="prefixo_nome_arquivo">%s</string>
+    <string name="prefixo_enviado_em">Enviado em: %s</string>
+    <string name="prefixo_ultima_impressao">Última impressão: %s</string>
 </resources>

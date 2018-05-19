@@ -8,9 +8,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -23,6 +25,7 @@ import com.melhorgrupo.printserverclient.arquivosEnviados.ArquivoEnviadoDAO;
  * A simple {@link Fragment} subclass.
  */
 public class ArquivosEnviadosFragment extends Fragment {
+    public static final String TAG = "ArquivosEnviadosFrag";
 
     ArquivoEnviado arquivoEditado = null;
     private ArquivoEnviadoAdapter adapter;
@@ -39,18 +42,6 @@ public class ArquivosEnviadosFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_arquivos_enviados, container, false);
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), FormArquivoEnviadoActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_FORMULARIO);
-//                view.findViewById(R.id.includemain).setVisibility(View.INVISIBLE);
-//                view.findViewById(R.id.includecadastro).setVisibility(View.VISIBLE);
-//                view.findViewById(R.id.fab).setVisibility(View.INVISIBLE);
-            }
-        });
-
         configurarRecycler(view);
 
         // Inflate the layout for this fragment
@@ -65,18 +56,14 @@ public class ArquivosEnviadosFragment extends Fragment {
 
         // Adicionar o adapter que irá anexar objetos na lista
         ArquivoEnviadoDAO dao = new ArquivoEnviadoDAO(getContext());
-        adapter = new ArquivoEnviadoAdapter(dao.retornarTodos());
+        adapter = new ArquivoEnviadoAdapter(dao.retornarTodos(), getContext());
 
         recyclerView.setAdapter(adapter);
-        // Configurar um separador entre linhas
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("ArquivosEnviadosFrag","request code!" + requestCode);
-        Log.d("ArquivosEnviadosFrag","result code!" + resultCode);
-        if (requestCode == REQUEST_CODE_FORMULARIO) {
+        if (requestCode == REQUEST_CODE_FORMULARIO && data != null) {
             Bundle extras = data.getExtras();
 
             if (resultCode == FormArquivoEnviadoActivity.RESULT_SUCESSO) { // Sucesso

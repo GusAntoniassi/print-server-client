@@ -40,6 +40,17 @@ public class ArquivoEnviadoDAO {
         return null;
     }
 
+    public ArquivoEnviado retornarPorId(int id) {
+        Cursor cursor = gw.getDatabase().rawQuery("SELECT * FROM " + TABLE_ARQUIVOS_ENVIADOS + " WHERE ID = " + id, null);
+        if (cursor.moveToFirst()) {
+            ArquivoEnviado arquivoEnviado = this.getArquivoEnviadoFromCursor(cursor);
+            cursor.close();
+            return arquivoEnviado;
+        }
+
+        return null;
+    }
+
     public boolean salvar(String nome, String enviadoEm, String ultimaImpressao) {
         return salvar(0, nome, enviadoEm, ultimaImpressao);
     }

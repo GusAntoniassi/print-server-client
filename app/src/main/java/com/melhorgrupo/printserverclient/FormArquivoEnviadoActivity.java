@@ -76,7 +76,14 @@ public class FormArquivoEnviadoActivity extends AppCompatActivity {
                 Intent returnIntent = new Intent();
 
                 if (sucesso) {
-                    ArquivoEnviado arquivoEnviado = dao.retornarUltimo();
+                    ArquivoEnviado arquivoEnviado;
+
+                    if (arquivoEditado != null) {
+                        arquivoEnviado = dao.retornarPorId(arquivoEditado.getId());
+                    } else {
+                        arquivoEnviado = dao.retornarUltimo();
+                    }
+
                     returnIntent.putExtra("arquivoEnviado", arquivoEnviado);
                     returnIntent.putExtra("editou", arquivoEditado != null);
                     setResult(RESULT_SUCESSO,returnIntent);

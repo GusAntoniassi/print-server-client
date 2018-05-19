@@ -1,42 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:id="@+id/nomeArquivo"
-        android:text="Nome do cliente"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/btnEdit"
-        android:layout_marginRight="8dp" />
+        android:orientation="horizontal"
+        android:padding="12dp">
 
-    <ImageButton
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/btnEdit"
-        android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintRight_toLeftOf="@+id/btnDelete"
-        android:layout_marginRight="8dp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <ImageButton
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/btnDelete"
-        android:src="@android:drawable/ic_delete"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp" />
+            <TextView
+                android:id="@+id/nomeArquivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:layout_marginBottom="5dp"/>
 
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/enviadoEm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/ultimaImpressao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:src="@drawable/ic_action_more_vert"
+            android:tint="@color/colorPrimaryText"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
