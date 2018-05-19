@@ -45,9 +45,7 @@ public class FormArquivoEnviadoActivity extends AppCompatActivity {
         btnCancelar.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                findViewById(R.id.includemain).setVisibility(View.VISIBLE);
-//                findViewById(R.id.includecadastro).setVisibility(View.INVISIBLE);
-//                findViewById(R.id.fab).setVisibility(View.VISIBLE);
+                finish();
             }
         });
 
