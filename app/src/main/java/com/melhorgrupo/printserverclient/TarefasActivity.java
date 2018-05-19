@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -95,18 +96,26 @@ public class TarefasActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_tarefa) {
+            // @TODO: Deixar as tarefas em um fragment também
             setTitle("Tarefas");
             Intent intent = new Intent(this, TarefasActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_arq_env) {
             setTitle("Arquivos Enviados");
-            Historico historico = new Historico();
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment, historico).commit();
+//            Historico historico = new Historico();
+//            historico.setArguments(getIntent().getExtras());
+//            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+//            fragmentManager.beginTransaction().replace(R.id.fragment, historico).commit();
+
+            ArquivosEnviadosFragment arquivosEnviadosFragment = new ArquivosEnviadosFragment();
+            arquivosEnviadosFragment.setArguments(getIntent().getExtras());
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, arquivosEnviadosFragment).commit();
         } else if (id == R.id.nav_sobre) {
             setTitle("Sobre");
             Sobre sobre = new Sobre();
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+            sobre.setArguments(getIntent().getExtras());
+            FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragment, sobre).commit();
         }
 

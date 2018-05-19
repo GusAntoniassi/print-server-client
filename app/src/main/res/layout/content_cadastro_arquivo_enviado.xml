@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".TarefasActivity"
+    tools:showIn="@layout/fragment_arquivos_enviados">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <EditText
+            android:id="@+id/txtNome"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Nome do arquivo"
+            android:inputType="text"/>
+        <EditText
+            android:id="@+id/txtEnviadoEm"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Data de envio"
+            android:inputType="text"/>
+        <EditText
+            android:id="@+id/txtUltimaImpressao"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Última impressão"
+            android:inputType="text"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/btnCancelar"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.48" />
+
+</android.support.constraint.ConstraintLayout>

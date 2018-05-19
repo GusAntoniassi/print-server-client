@@ -23,7 +23,7 @@ public class Historico extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_historico, container, false);
+        return inflater.inflate(R.layout.fragment_arquivos_enviados, container, false);
     }
 
 }
