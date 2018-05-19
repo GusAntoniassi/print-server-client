@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FormArquivoEnviadoActivity" />
-        <activity android:name=".DetalhesArquivoActivity"></activity>
+        <activity android:name=".DetalhesArquivoActivity" />
     </application>
 
 </manifest>
