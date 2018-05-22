@@ -1,6 +1,7 @@
 package com.melhorgrupo.printserverclient;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -43,6 +44,7 @@ public class ArquivosEnviadosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView");
         // Pegar o title do strings.xml
         String title = getResources().getString(R.string.title_arquivos_enviados);
         getActivity().setTitle(title);
@@ -105,5 +107,56 @@ public class ArquivosEnviadosFragment extends Fragment {
                             .setAction("Action", null).show();
             }
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.d(TAG, "onAttach");
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate");
+    }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.d(TAG, "onActivityCreated");
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d(TAG, "onStart");
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d(TAG, "onDestroyView");
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d(TAG, "onDetach");
     }
 }
