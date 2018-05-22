@@ -3,9 +3,11 @@ package com.melhorgrupo.printserverclient;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
@@ -15,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.melhorgrupo.printserverclient.arquivosEnviados.ArquivoEnviado;
 import com.melhorgrupo.printserverclient.arquivosEnviados.ArquivoEnviadoAdapter;
@@ -46,6 +49,24 @@ public class ArquivosEnviadosFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_arquivos_enviados, container, false);
         configurarRecycler(view);
+
+        // Null Pointer Exception
+        final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Refresh items
+                        adapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(view.getContext(), "Arquivos atualizados!", Toast.LENGTH_SHORT).show();
+                    }
+                }, 2000);
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;
