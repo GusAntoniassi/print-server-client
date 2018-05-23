@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="8dp"
     tools:context=".DetalhesArquivoActivity">
 
     <LinearLayout
@@ -13,16 +14,24 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
             android:id="@+id/detalhes_nome_arquivo"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="16sp"
             android:id="@+id/detalhes_enviado_em"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
             android:id="@+id/detalhes_ultima_impressao"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.melhorgrupo.printserverclient.arquivosEnviados.ArquivoEnviado;
@@ -30,7 +31,11 @@ public class DetalhesArquivoActivity extends AppCompatActivity {
 
         nomeArquivo.setText(resources.getString(R.string.format_nome_arquivo, arquivoEnviado.getNome()));
         enviadoEm.setText(resources.getString(R.string.format_enviado_em, arquivoEnviado.getEnviadoEm()));
-        ultimaImpressao.setText(resources.getString(R.string.format_ultima_impressao, arquivoEnviado.getUltimaImpressao()));
+        if (arquivoEnviado.getUltimaImpressao().isEmpty()) {
+            ultimaImpressao.setVisibility(View.GONE);
+        } else {
+            ultimaImpressao.setText(resources.getString(R.string.format_ultima_impressao, arquivoEnviado.getUltimaImpressao()));
+        }
     }
 
     @Override
