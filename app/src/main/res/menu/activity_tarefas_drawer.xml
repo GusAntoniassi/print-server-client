@@ -7,16 +7,16 @@
         <item
             android:id="@+id/nav_tarefa"
             android:icon="@drawable/ic_tarefa"
-            android:title="Tarefas"
+            android:title="@string/drawer_tarefas"
             android:checked="true"/>
         <item
             android:id="@+id/nav_arq_env"
             android:icon="@drawable/ic_historico"
-            android:title="Arquivos Enviados" />
+            android:title="@string/drawer_arquivos_enviados" />
         <item
             android:id="@+id/nav_sobre"
             android:icon="@drawable/ic_users"
-            android:title="Sobre" />
+            android:title="@string/drawer_sobre" />
 
     </group>
 

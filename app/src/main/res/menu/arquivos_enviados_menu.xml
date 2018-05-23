@@ -2,19 +2,19 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/arquivo_ver_detalhes"
-        android:title="Ver detalhes"
+        android:title="@string/menu_arquivo_ver_detalhes"
         app:showAsAction="never" />
     <item android:id="@+id/arquivo_abrir"
-        android:title="Abrir arquivo"
+        android:title="@string/menu_arquivo_abrir_arquivo"
         app:showAsAction="never" />
     <item android:id="@+id/arquivo_imprimir"
-        android:title="Imprimir"
+        android:title="@string/menu_arquivo_imprimir"
         app:showAsAction="never" />
     <!-- @TODO: Tirar o "editar" (é só pra demonstrar o CRUD) -->
     <item android:id="@+id/arquivo_editar"
-        android:title="Editar"
+        android:title="@string/menu_arquivo_editar"
         app:showAsAction="never" />
     <item android:id="@+id/arquivo_excluir"
-        android:title="Excluir"
+        android:title="@string/menu_arquivo_excluir"
         app:showAsAction="never" />
 </menu>

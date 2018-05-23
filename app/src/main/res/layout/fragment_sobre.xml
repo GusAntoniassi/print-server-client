@@ -18,7 +18,7 @@
             android:id="@+id/texto_fonte1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="PrintServer App"
+            android:text="@string/app_name"
             android:textColor="@color/colorPrimary"
             android:textSize="30dp"
             android:textStyle="bold"
@@ -28,7 +28,7 @@
             android:id="@+id/texto_fonte2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="v 0.0.1" />
+            android:text="@string/app_version" />
 
         <View
             android:layout_width="fill_parent"
@@ -42,7 +42,7 @@
             android:id="@+id/texto_fonte3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Desenvolvido por"
+            android:text="@string/desenvolvido_por"
             android:textColor="@color/colorPrimary"
             android:textSize="18dp"
             android:textStyle="bold" />

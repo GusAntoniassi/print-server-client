@@ -18,19 +18,19 @@
             android:id="@+id/txtNome"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Nome do arquivo"
+            android:hint="@string/cadastro_nome_do_arquivo"
             android:inputType="text"/>
         <EditText
             android:id="@+id/txtEnviadoEm"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Data de envio"
+            android:hint="@string/cadastro_data_de_envio"
             android:inputType="text"/>
         <EditText
             android:id="@+id/txtUltimaImpressao"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Última impressão"
+            android:hint="@string/cadastro_ultima_impressao"
             android:inputType="text"/>
 
     </LinearLayout>
@@ -40,7 +40,7 @@
         android:id="@+id/btnCancelar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Cancelar"
+        android:text="@string/cadastro_botao_cancelar"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,7 +51,7 @@
         android:id="@+id/btnSalvar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Salvar"
+        android:text="@string/cadastro_botao_salvar"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

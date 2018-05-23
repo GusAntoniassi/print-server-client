@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PrintServer Client</string>
+    <string name="app_version">v0.0.1</string>
 
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="default_notification_channel_name" translatable="true">News</string>
@@ -29,4 +30,18 @@
     <string name="format_ultima_impressao">Última impressão: %s</string>
 
     <string name="texto_sem_tarefas">Nenhuma tarefa em andamento no momento</string>
+    <string name="cadastro_nome_do_arquivo">Nome do arquivo</string>
+    <string name="cadastro_data_de_envio">Data de envio</string>
+    <string name="cadastro_ultima_impressao">Última impressão</string>
+    <string name="cadastro_botao_cancelar">Cancelar</string>
+    <string name="cadastro_botao_salvar">Salvar</string>
+    <string name="desenvolvido_por">Desenvolvido por</string>
+    <string name="drawer_tarefas">Tarefas</string>
+    <string name="drawer_arquivos_enviados">Arquivos enviados</string>
+    <string name="drawer_sobre">Sobre</string>
+    <string name="menu_arquivo_ver_detalhes">Ver detalhes</string>
+    <string name="menu_arquivo_abrir_arquivo">Abrir arquivo</string>
+    <string name="menu_arquivo_imprimir">Imprimir</string>
+    <string name="menu_arquivo_editar">Editar</string>
+    <string name="menu_arquivo_excluir">Excluir</string>
 </resources>
