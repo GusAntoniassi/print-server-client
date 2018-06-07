@@ -100,10 +100,10 @@ public class ArquivosEnviadosFragment extends Fragment {
                     adapter.adicionarArquivoEnviado(arquivoEnviado);
                 }
 
-                Snackbar.make(getView(), "Salvou!", Snackbar.LENGTH_LONG)
+                Snackbar.make(getActivity().findViewById(android.R.id.content), "Salvou!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             } else if (resultCode == FormArquivoEnviadoActivity.RESULT_ERRO) {
-                Snackbar.make(getView(), "Erro ao salvar, consulte os logs!", Snackbar.LENGTH_LONG)
+                Snackbar.make(getActivity().findViewById(android.R.id.content), "Erro ao salvar, consulte os logs!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
             }
         }
